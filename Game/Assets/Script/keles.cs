@@ -31,11 +31,13 @@ public class keles : MonoBehaviour
 
     void AtesEt()
     {
+        AtesSesi.Play();
+        AtesEfekt.Play();
+
         RaycastHit hit;
         if(Physics.Raycast(benimCam.transform.position,benimCam.transform.forward,out hit,menzil))
         {
-            AtesSesi.Play();
-            AtesEfekt.Play();
+
             Debug.Log(hit.transform.name);
         }
     }
