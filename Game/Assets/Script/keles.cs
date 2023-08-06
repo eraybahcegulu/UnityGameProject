@@ -12,6 +12,9 @@ public class keles : MonoBehaviour
     public Camera benimCam;
     public AudioSource AtesSesi;
     public ParticleSystem AtesEfekt;
+
+    public ParticleSystem Mermi›zi;
+    public ParticleSystem KanEfekti;
     
     void Start()
     {
@@ -38,7 +41,28 @@ public class keles : MonoBehaviour
         if(Physics.Raycast(benimCam.transform.position,benimCam.transform.forward,out hit,menzil))
         {
 
-            Debug.Log(hit.transform.name);
+            if (hit.transform.gameObject.CompareTag("Dusman"))
+            {
+                Instantiate(KanEfekti, hit.point, Quaternion.LookRotation(hit.normal));
+            }
+
+            else if (hit.transform.gameObject.CompareTag("DevrilebilirObje"))
+            {
+                Rigidbody rg = hit.transform.gameObject.GetComponent<Rigidbody>();
+                // rg.AddForce(new Vector3(4f, 2f, 3f) * 50f);
+                // rg.AddForce(transform.forward * 500f);
+
+                rg.AddForce(-hit.normal * 50f);
+                Instantiate(Mermi›zi, hit.point, Quaternion.LookRotation(hit.normal));
+            }
+
+            else
+            {
+                Instantiate(Mermi›zi, hit.point, Quaternion.LookRotation(hit.normal));
+            }
+            
         }
+
+
     }
 }
