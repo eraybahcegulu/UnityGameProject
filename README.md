@@ -1,4 +1,4 @@
-# UnityGameProject
+# UnityGameProject3D
 # https://assetstore.unity.com/
 # https://www.textures.com/
 # https://freesound.org/
