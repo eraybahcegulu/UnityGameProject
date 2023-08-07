@@ -15,9 +15,11 @@ public class keles : MonoBehaviour
 
     public ParticleSystem Mermi›zi;
     public ParticleSystem KanEfekti;
-    
+
+    Animator animatorum;
     void Start()
     {
+        animatorum = GetComponent<Animator>();
         
     }
 
@@ -36,6 +38,7 @@ public class keles : MonoBehaviour
     {
         AtesSesi.Play();
         AtesEfekt.Play();
+        animatorum.Play("ateset");
 
         RaycastHit hit;
         if(Physics.Raycast(benimCam.transform.position,benimCam.transform.forward,out hit,menzil))
